@@ -5,4 +5,6 @@ import { type Schema } from "../../amplify/data/resource";
 
 Amplify.configure(config);
 
-export const amplifyClient = generateClient<Schema>();
+export const amplifyClient = generateClient<Schema>({
+	authMode: 'apiKey',
+});
