@@ -1,7 +1,7 @@
 "use client";
-
+import '@aws-amplify/ui-react/styles.css';
 import React, { FormEvent, useState } from "react";
-import { Card } from "@aws-amplify/ui-react";
+import { Card, Loader } from "@aws-amplify/ui-react";
 import { generateRecipe } from "./actions";
 
 
@@ -61,7 +61,7 @@ export default function Home() {
       {loading ? (
         <div className="flex flex-col items-center gap-4 w-1/2  mx-auto ">
           <h2 className="m-10 font-medium   text-xl   max-w-prose text-blue-600 ">
-            Wait for it...
+            <Loader />
           </h2>
 
         </div>
