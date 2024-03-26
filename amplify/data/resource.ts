@@ -10,7 +10,7 @@ const schema = a.schema({
     .query()
     .arguments({ ingredients: a.string().array() })
     .returns(a.ref("BedrockResponse"))
-    .authorization([a.allow.public()])
+    .authorization([a.allow.public(), a.allow.public('iam')])
     .handler(
       a.handler.custom({ entry: "./bedrock.js", dataSource: "bedrockDS" })
     ),
@@ -21,7 +21,7 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: "apiKey",
+    defaultAuthorizationMode: "iam",
     apiKeyAuthorizationMode: {
       expiresInDays: 30,
     },

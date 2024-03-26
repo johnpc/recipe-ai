@@ -4,7 +4,7 @@ import { data } from "./data/resource";
 import { PolicyStatement } from "aws-cdk-lib/aws-iam";
 
 const backend = defineBackend({
-  // auth,
+  auth,
   data,
 });
 
